@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Notes & Reminders</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Student Notes & Reminders</h1>
+        </header>
+
+        <div class="controls">
+            <div class="filter-section">
+                <label for="categoryFilter">Filter by Category:</label>
+                <select id="categoryFilter">
+                    <option value="all">All</option>
+                    <option value="School">School</option>
+                    <option value="Personal">Personal</option>
+                </select>
+            </div>
+            <button id="addNoteBtn" class="btn btn-primary">+ Add Note</button>
+        </div>
+
+        <div id="notesContainer" class="notes-container"></div>
+    </div>
+
+    <!-- Modal for Add/Edit Note -->
+    <div id="noteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add Note</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="noteForm">
+                <input type="hidden" id="noteId">
+                <div class="form-group">
+                    <label for="noteTitle">Title:</label>
+                    <input type="text" id="noteTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="noteContent">Content:</label>
+                    <textarea id="noteContent" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="noteCategory">Category:</label>
+                    <select id="noteCategory">
+                        <option value="School">School</option>
+                        <option value="Personal">Personal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="noteReminder">Reminder Date & Time:</label>
+                    <input type="datetime-local" id="noteReminder">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
